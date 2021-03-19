@@ -15,9 +15,9 @@ uint FUN_ADDITEM_SIZE = 7;
 uint FUN_BID_SIZE = 3;
    
 /* state cache */
-char beneficiary[21];   // 受益人
-char item[21];
-char highestBidder[21];     // 最高竞价者
+char beneficiary[USER_LENGTH + 1];   // 受益人
+char item[USER_LENGTH + 1];
+char highestBidder[USER_LENGTH + 1];     // 最高竞价者
 uint highestBid;        // 最高竞价
 
 void loadState(const char *_path) {
@@ -30,7 +30,7 @@ void loadState(const char *_path) {
     infp.read(reinterpret_cast<char *>(beneficiary), sizeof(beneficiary));
     infp.read(reinterpret_cast<char *>(item), sizeof(item));
     infp.read(reinterpret_cast<char *>(highestBidder), sizeof(highestBidder));
-    char *temp_bid;
+    char temp_bid[USER_LENGTH + 1];
     infp.read(reinterpret_cast<char *>(temp_bid), sizeof(temp_bid));
     highestBid = (uint)(atoi(temp_bid));
     // while(!infp.eof()) {
@@ -55,11 +55,11 @@ void updateState(const char *_path) {
 }
 
 bool addItem(const char *_path, const char *_beneficiary, const char *_newItem) {
-    // char beneficiary[21];
+    // char beneficiary[USER_LENGTH + 1];
     // uint initial_bid = 0;
-    strncpy(beneficiary, _beneficiary, 21);
-    strncpy(item, _newItem, 21);
-    strncpy(highestBidder, beneficiary, 21);
+    strncpy(beneficiary, _beneficiary, USER_LENGTH);
+    strncpy(item, _newItem, USER_LENGTH + 1);
+    strncpy(highestBidder, beneficiary, USER_LENGTH);
     highestBid = 0;
     updateState(_path);
     return true;
@@ -68,14 +68,14 @@ bool addItem(const char *_path, const char *_beneficiary, const char *_newItem) 
 bool bid(const char *_path, const char *_mode, const char *_bidder, const uint _bidPrice) {
     loadState(_path);
     if (strcmp(_mode, "test")) {
-        strncpy(highestBidder, _bidder, 21);
+        strncpy(highestBidder, _bidder, USER_LENGTH);
         highestBid = _bidPrice;
         updateState(_path);
         return true;
     }
     else {
         if (highestBid < _bidPrice) {
-            strncpy(highestBidder, _bidder, 21);
+            strncpy(highestBidder, _bidder, USER_LENGTH);
             highestBid = _bidPrice;
             updateState(_path);
             return true;
@@ -99,6 +99,7 @@ void parseBid(std::string input_data, std::string &_bidder, uint &_bidPrice) {
 }
 
 // mode = test or non-test
+/* run: ./Auction ./state test */
 int main(int argc, char *argv[]) {
     char *file_path, *function, *mode;
     file_path = argv[1];
@@ -143,7 +144,8 @@ int main(int argc, char *argv[]) {
         stRemoteAddr.sin_port = htons(22345);
         stRemoteAddr.sin_addr.s_addr = htonl(INADDR_ANY); // localhost
         std::string input_data = acBuf;
-        if (input_data.find("addItem") != input_data.npos) {       // create account function
+        /* addItem Function: addItem 12345678901234567890 aaaaaaaaaaaaaaaaaaaa*/
+        if (input_data.find("addItem") != input_data.npos) {      
             std::string _beneficiary, _newItem;
             parseAddItem(input_data, _beneficiary, _newItem);
             // parseCreate(input_data, inName, inCoins);
@@ -154,7 +156,8 @@ int main(int argc, char *argv[]) {
                 sendto(send_SocketFD, "Failed to release a new item!", strlen("Failed to release a new item!"), 0, (struct sockaddr *)&stRemoteAddr, sizeof(stRemoteAddr));
             }
         }
-        else if (input_data.find("bid") != input_data.npos) {        // getbalance function
+        /* bid Function: bid 01234567890123456789 100*/
+        else if (input_data.find("bid") != input_data.npos) {       
             std::string _bidder;
             uint _bidPrice;
             parseBid(input_data, _bidder, _bidPrice);

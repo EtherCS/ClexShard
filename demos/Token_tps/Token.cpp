@@ -48,10 +48,10 @@ void updateState(const char *_path) {
     std::map<std::string, uint>::reverse_iterator balIter;
     for (balIter = balance.rbegin(); balIter != balance.rend(); balIter++) {
         const char *name = balIter->first.c_str();
-        strncpy(element.first, name, USER_LENGTH + 1);
+        strncpy(element.first, name, USER_LENGTH);
         element.second = balIter->second;
         outfp.write(reinterpret_cast<char *>(&element), sizeof(element));
-        delete name;
+        // delete name;
     }
     outfp.close();
 }

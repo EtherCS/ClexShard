@@ -137,42 +137,26 @@ void loadState(const char *_path) {
     /* Resolve beneficiary*/
     infp.read(reinterpret_cast<char *>(read_temp), sizeof(read_temp));
     temp_encrpyt_text = read_temp;
-    printf("(char)Encrypt beneficiary is: %s \n", read_temp);
-    printf("(str)Encrypt beneficiary is: %s \n", temp_encrpyt_text.c_str());
     temp_decrpyt_text = des_decrypt(temp_encrpyt_text, desKey);
-    printf("(str)Decrypt beneficiary is: %s \n", temp_decrpyt_text.c_str());
     strncpy(beneficiary, temp_decrpyt_text.c_str(), USER_LENGTH);
-    printf("(char[])Decrypt beneficiary is: %s \n", beneficiary);
 
     /* Resolve item*/
     infp.read(reinterpret_cast<char *>(read_temp), sizeof(read_temp));
     temp_encrpyt_text = read_temp;
-    printf("(char)Encrypt item is: %s \n", read_temp);
-    printf("(str)Encrypt item is: %s \n", temp_encrpyt_text.c_str());
     temp_decrpyt_text = des_decrypt(temp_encrpyt_text, desKey);
-    printf("(str)Decrypt item is: %s \n", temp_decrpyt_text.c_str());
     strncpy(item, temp_decrpyt_text.c_str(), USER_LENGTH);
-    printf("(char[])Decrypt item is: %s \n", item);
 
     /* Resolve highestBidder*/
     infp.read(reinterpret_cast<char *>(read_temp), sizeof(read_temp));
     temp_encrpyt_text = read_temp;
-    printf("(char)Encrypt highestBidder is: %s \n", read_temp);
-    printf("(str)Encrypt highestBidder is: %s \n", temp_encrpyt_text.c_str());
     temp_decrpyt_text = des_decrypt(temp_encrpyt_text, desKey);
-    printf("(str)Decrypt highestBidder is: %s \n", temp_decrpyt_text.c_str());
     strncpy(highestBidder, temp_decrpyt_text.c_str(), USER_LENGTH);
-    printf("(char[])Decrypt highestBidder is: %s \n", highestBidder);
 
     /* Resolve highestBid*/
     infp.read(reinterpret_cast<char *>(read_temp), sizeof(read_temp));
     temp_encrpyt_text = read_temp;
-    printf("(char)Encrypt highestBid is: %s \n", read_temp);
-    printf("(str)Encrypt highestBid is: %s \n", temp_encrpyt_text.c_str());
     temp_decrpyt_text = des_decrypt(temp_encrpyt_text, desKey);
-    printf("(str)Decrypt highestBid is: %s \n", temp_decrpyt_text.c_str());
     highestBid = (uint)(atoi(temp_decrpyt_text.c_str()));
-    printf("(int)Decrypt highestBid is: %lu \n", highestBid);
     // infp.read(reinterpret_cast<char *>(beneficiary), sizeof(beneficiary));
     // infp.read(reinterpret_cast<char *>(item), sizeof(item));
     // infp.read(reinterpret_cast<char *>(highestBidder), sizeof(highestBidder));
@@ -192,35 +176,23 @@ void updateState(const char *_path) {
     std::string temp_encrpyt_text;
     /* encrypt beneficiary */
     temp_decrpyt_text = beneficiary;
-    printf("(char[])Before encrypt, beneficiary is: %s", beneficiary);
-    printf("(str)Before encrypt, beneficiary is: %s", temp_decrpyt_text.c_str());
     temp_encrpyt_text = des_encrypt(temp_decrpyt_text, desKey);
-    printf("(str)After encrypt, beneficiary is: %s", temp_encrpyt_text.c_str());
-    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), sizeof(temp_encrpyt_text.c_str()));
+    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), CRYPT_LENGTH);
 
     /* encrypt item */
     temp_decrpyt_text = item;
-    printf("(char[])Before encrypt, item is: %s", item);
-    printf("(str)Before encrypt, item is: %s", temp_decrpyt_text.c_str());
     temp_encrpyt_text = des_encrypt(temp_decrpyt_text, desKey);
-    printf("(str)After encrypt, item is: %s", temp_encrpyt_text.c_str());
-    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), sizeof(temp_encrpyt_text.c_str()));
+    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), CRYPT_LENGTH);
 
     /* encrypt highestBidder */
     temp_decrpyt_text = highestBidder;
-    printf("(char[])Before encrypt, highestBidder is: %s", highestBidder);
-    printf("(str)Before encrypt, highestBidder is: %s", temp_decrpyt_text.c_str());
     temp_encrpyt_text = des_encrypt(temp_decrpyt_text, desKey);
-    printf("(str)After encrypt, highestBidder is: %s", temp_encrpyt_text.c_str());
-    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), sizeof(temp_encrpyt_text.c_str()));  // initialize beneficiary as the highestBidder
+    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), CRYPT_LENGTH);  // initialize beneficiary as the highestBidder
 
     /* encrypt highestBid */
     temp_decrpyt_text = std::to_string(highestBid);
-    printf("(char[])Before encrypt, highestBid is: %lu", highestBid);
-    printf("(str)Before encrypt, highestBid is: %s", temp_decrpyt_text.c_str());
     temp_encrpyt_text = des_encrypt(temp_decrpyt_text, desKey);
-    printf("(str)After encrypt, highestBid is: %s", temp_encrpyt_text.c_str());
-    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), sizeof(temp_encrpyt_text.c_str()));
+    outfp.write(reinterpret_cast<char *>((char *)temp_encrpyt_text.c_str()), CRYPT_LENGTH);
     outfp.close();
 }
 
@@ -228,7 +200,7 @@ bool addItem(const char *_path, const char *_beneficiary, const char *_newItem) 
     // char beneficiary[USER_LENGTH + 1];
     // uint initial_bid = 0;
     strncpy(beneficiary, _beneficiary, USER_LENGTH);
-    strncpy(item, _newItem, USER_LENGTH + 1);
+    strncpy(item, _newItem, USER_LENGTH);
     strncpy(highestBidder, beneficiary, USER_LENGTH);
     highestBid = 0;
     updateState(_path);
@@ -237,7 +209,7 @@ bool addItem(const char *_path, const char *_beneficiary, const char *_newItem) 
 
 bool bid(const char *_path, const char *_mode, const char *_bidder, const uint _bidPrice) {
     loadState(_path);
-    if (strcmp(_mode, "test")) {
+    if (strcmp(_mode, "test") == 0) {
         strncpy(highestBidder, _bidder, USER_LENGTH);
         highestBid = _bidPrice;
         updateState(_path);

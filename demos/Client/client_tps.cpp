@@ -26,11 +26,7 @@ void * sendReq(void * arg) {
 	sleep(2);
     printf("Send request is: %s \n", para->reqMsg.c_str());
     while(1) {
-        // sleep(10);
-        
         iRecvLen = sendto(para->send_SocketFD, para->reqMsg.c_str(), strlen(para->reqMsg.c_str()), 0, (struct sockaddr *)&para->stRemoteAddr, sizeof(para->stRemoteAddr));
-        // printf("Hello World!\n");
-
     }
     return NULL;
 }
@@ -63,7 +59,7 @@ int main(int argc, char **argv)
  
 	/* 填写地址 */
 	stLocalAddr.sin_family = AF_INET;
-	stLocalAddr.sin_port   = htons(10002);
+	stLocalAddr.sin_port   = htons(10012);
 	stLocalAddr.sin_addr.s_addr = 0;
 
  
@@ -78,7 +74,7 @@ int main(int argc, char **argv)
     struct List_para para;
     para.send_SocketFD = send_SocketFD;
     para.stRemoteAddr.sin_family = AF_INET;
-	para.stRemoteAddr.sin_port   = htons(10001);
+	para.stRemoteAddr.sin_port   = htons(10011);
 	para.stRemoteAddr.sin_addr.s_addr = 0;
     para.reqMsg = argv[3];
     // printf("In msg is: %s\n", argv[2]);

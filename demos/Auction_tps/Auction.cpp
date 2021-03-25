@@ -269,7 +269,7 @@ int main(int argc, char *argv[]) {
  
 	/* 填写地址 */
 	stLocalAddr.sin_family = AF_INET;
-	stLocalAddr.sin_port   = htons(10001);
+	stLocalAddr.sin_port   = htons(10011);
 	stLocalAddr.sin_addr.s_addr = 0;
  
 	/* 绑定地址 */
@@ -283,7 +283,7 @@ int main(int argc, char *argv[]) {
 	{
         // TODO: Resolve ip and port from user
         stRemoteAddr.sin_family = AF_INET;
-        stRemoteAddr.sin_port = htons(10002);
+        stRemoteAddr.sin_port = htons(10012);
         stRemoteAddr.sin_addr.s_addr = htonl(INADDR_ANY); // localhost
         std::string input_data = acBuf;
         /* addItem Function: addItem 12345678901234567890 aaaaaaaaaaaaaaaaaaaa*/

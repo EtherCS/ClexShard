@@ -27,3 +27,12 @@
 
 ## Note
 文件夹中的其他.sh脚本用于测试相关合约的性能，基本思想是：用脚本的方式去调用occlum指令来运行相关合约。等价于用户给TEE provider发送交易请求。
+
+## 端口规则
+端口为5位，形式为**100xx**其中
+
+1） 末位为1表示server监听的端口，末位为2表示client监听的端口
+
+2） 倒数第2位为TEE provider的编号
+
+例如端口号：**10012** 表示client与TEE provider 1传输信息所监听的端口号；**10042** 表示client与TEE provider 4传输信息所监听的端口号；**10051** 表示TEE provider 5与client传输信息所监听的端口号

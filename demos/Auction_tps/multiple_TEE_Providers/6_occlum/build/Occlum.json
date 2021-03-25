@@ -1,0 +1,65 @@
+{
+  "resource_limits": {
+    "user_space_size": "300MB"
+  },
+  "process": {
+    "default_stack_size": "4MB",
+    "default_heap_size": "32MB",
+    "default_mmap_size": "100MB"
+  },
+  "entry_points": [
+    "/bin"
+  ],
+  "env": {
+    "default": [
+      "OCCLUM=yes"
+    ],
+    "untrusted": [
+      "EXAMPLE"
+    ]
+  },
+  "mount": [
+    {
+      "options": {
+        "layers": [
+          {
+            "options": {
+              "MAC": "67-60-62-d1-24-18-99-0d-66-53-da-2c-f8-b1-d7-ee"
+            },
+            "source": "./build/mount/__ROOT",
+            "target": "/",
+            "type": "sefs"
+          },
+          {
+            "source": "./run/mount/__ROOT",
+            "target": "/",
+            "type": "sefs"
+          }
+        ]
+      },
+      "target": "/",
+      "type": "unionfs"
+    },
+    {
+      "source": ".",
+      "target": "/host",
+      "type": "hostfs"
+    },
+    {
+      "options": {
+        "temporary": true
+      },
+      "source": "./run/mount/tmp",
+      "target": "/tmp",
+      "type": "sefs"
+    },
+    {
+      "target": "/proc",
+      "type": "procfs"
+    },
+    {
+      "target": "/dev",
+      "type": "devfs"
+    }
+  ]
+}

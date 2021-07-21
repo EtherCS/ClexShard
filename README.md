@@ -25,7 +25,7 @@ ClexShard has the following salient features:
 6. Complex Contract 2:
 + call2: the contract calls other two contracts
 
-# How to test?
+# How to use?
 ## step 1: build the Occlum
 please see https://github.com/occlum/occlum
 

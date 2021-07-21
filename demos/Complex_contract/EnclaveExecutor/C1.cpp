@@ -20,7 +20,7 @@ namespace C1_internal{
             return 0;
         }
     }
-    // 解析交易请求
+    
     int findProcedures(const char* Procedure){
         for (int i = 0; i < 2; i++)
             if(strcmp(Procedure,Procedures[i])==0)
@@ -59,7 +59,7 @@ public:
     }
     ~C1(){
     }
-    int PackageState(char* buf, int out_buf_size) { // 状态打包（只简单地打包存储信息）
+    int PackageState(char* buf, int out_buf_size) { 
         char out_buf[BUFSIZ];
         int len = mysprintf(buf,"contract:%s\nversion:%d\nkv_begin\n",this->name,this->version());
         for (auto iter=this->sm.storage.begin(); iter!=this->sm.storage.end(); iter++)
@@ -76,7 +76,7 @@ public:
         }
         return 0;
     };
-	int UpdateState(std::string package_state) { // 根据打包的状态更新
+	int UpdateState(std::string package_state) { 
         char temp[BUFSIZ];
         decrypt_message((char*)package_state.c_str(), package_state.length(), temp);
         int len = (int)strlen(temp);

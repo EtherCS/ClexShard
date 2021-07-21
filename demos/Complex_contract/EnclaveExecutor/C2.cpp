@@ -17,7 +17,7 @@ namespace C2_internal{
     int func2(struct Trace * trace){
         Contract* C1 = C1_instance();
         Contract* C2 = C2_instance();
-        // 1. local attestation 验证身份
+        
         if(test_create_session() != SUCCESS){
             return FAIL;
         };
@@ -25,7 +25,7 @@ namespace C2_internal{
             test_close_session();
             return FAIL;
         }
-        // 2. 检查状态并交换状态
+        
         if(check_version("C1",C1->version()) == SUCCESS){
             int temp_num = 9;
             while(temp_num-- > 0) {
@@ -53,15 +53,15 @@ namespace C2_internal{
         
         test_close_session();
 
-        // 3. 嵌套调用
+        
         struct Object obj;
         C1->Handle(&fun1_trace,&obj);
         
-        // 后面随意
+        
 
         return SUCCESS;
     }
-    // 解析交易请求
+    
     int findProcedures(const char* Procedure){
         for (int i = 0; i < 1; i++)
             if(strcmp(Procedure,Procedures[i])==0)
@@ -98,7 +98,7 @@ public:
     }
     ~C2(){
     }
-    int PackageState(char* buf, int out_buf_size) { // 状态打包（只简单地打包存储信息）
+    int PackageState(char* buf, int out_buf_size) { 
         char out_buf[BUFSIZ];
         int len = mysprintf(buf,"contract:%s\nversion:%d\nkv_begin\n",this->name,this->version());
         for (auto iter=this->sm.storage.begin(); iter!=this->sm.storage.end(); iter++)
@@ -115,7 +115,7 @@ public:
         }
         return 0;
     };
-	int UpdateState(std::string package_state) { // 根据打包的状态更新
+	int UpdateState(std::string package_state) { 
         char temp[BUFSIZ];
         decrypt_message((char*)package_state.c_str(), package_state.length(), temp);
         int len = (int)strlen(temp);

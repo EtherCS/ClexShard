@@ -110,7 +110,7 @@ uint32_t test_message_exchange()
     return SUCCESS;
 }
 
-// 过程差不多，就是发个数字取个数字然后检查
+
 uint32_t check_version(const char* contractID, size_t version){
     return test_message_exchange();
 }
@@ -245,7 +245,7 @@ extern "C" uint32_t message_exchange_response_generator(char* decrypted_data,
     return SUCCESS;
 }
 
-// 简单返回原数据
+
 void get_asyn_response(char* inp_secret_data,size_t inp_secret_data_len,char** out_secret_data,size_t* out_secret_data_len)
 {
     *out_secret_data_len = inp_secret_data_len;

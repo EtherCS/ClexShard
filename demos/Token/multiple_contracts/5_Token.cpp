@@ -267,27 +267,27 @@ int main(int argc, char *argv[]) {
 	struct sockaddr_in stRemoteAddr = {0};
 	socklen_t iRemoteAddrLen = 0;
  
-	/* 创建socket */
+	
 	iSocketFD = socket(AF_INET, SOCK_DGRAM, 0);
     send_SocketFD = socket(AF_INET, SOCK_DGRAM, 0);
 	if(iSocketFD < 0 || send_SocketFD < 0)
 	{
-		printf("创建socket失败!\n");
+		printf("fail to create socket!\n");
 	}
 
-	/* 填写地址 */
+	
 	stLocalAddr.sin_family = AF_INET;
 	stLocalAddr.sin_port   = htons(10051);
 	stLocalAddr.sin_addr.s_addr = 0;
  
-	/* 绑定地址 */
+	
 	if(0 > bind(iSocketFD, (struct sockaddr *)&stLocalAddr, sizeof(stLocalAddr)))
 	{
-		printf("绑定地址失败!\n");
+		printf("fail to bind address!\n");
 		close(iSocketFD);
 		return 0;
 	}
-    while((iRecvLen = recvfrom(iSocketFD, acBuf, sizeof(acBuf), 0, (struct sockaddr *)&stRemoteAddr, &iRemoteAddrLen))>0)     //实现了循环监听
+    while((iRecvLen = recvfrom(iSocketFD, acBuf, sizeof(acBuf), 0, (struct sockaddr *)&stRemoteAddr, &iRemoteAddrLen))>0)     
 	{
         // TODO: Resolve ip and port from user
         stRemoteAddr.sin_family = AF_INET;

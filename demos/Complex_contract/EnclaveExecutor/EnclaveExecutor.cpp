@@ -13,7 +13,7 @@ void ecall_handle(struct Transaction * tx, struct Object *obj){
         // for (int i = 0; i < 100; i++){
             Trace *trace = tx->Traces[0];
             if (trace != NULL){
-                // TODO: 按照chainspace应该是要查map来检查状态是否一致的
+                
                 Contract* contract = contracts[std::string(trace->ContractID)];
                 if(contract == NULL) return;
                 contract->Handle(trace,obj);

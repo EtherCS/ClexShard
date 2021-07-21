@@ -104,7 +104,7 @@ void cleanup()
 void* invoke_test(void* args)
 {
     sleep(5);
-    // 5s后执行合约C2的函数func2
+    
     struct Object obj;
     sgx_status_t status = SGX_SUCCESS;
     printf("Begin to run func2...\n");
@@ -186,7 +186,7 @@ int  main(int argc, char* argv[])
     {
          printf("fail to init server\n");       
     } 
-    else                                           // 改成循环监听（服务器，argv为不同参数）（合约）
+    else                                           
     {
         int iRecvLen = 0;
         int iSocketFD = 0;
@@ -198,12 +198,12 @@ int  main(int argc, char* argv[])
         struct sockaddr_in stRemoteAddr = {0};
         socklen_t iRemoteAddrLen = 0;
     
-        /* 创建socket */
+        
         iSocketFD = socket(AF_INET, SOCK_DGRAM, 0);
         send_SocketFD = socket(AF_INET, SOCK_DGRAM, 0);
         if(iSocketFD < 0 || send_SocketFD < 0)
         {
-            printf("创建socket失败!\n");
+            printf("fail to create socket!\n");
             // return 0;
         }
         pthread_t m_thread;         

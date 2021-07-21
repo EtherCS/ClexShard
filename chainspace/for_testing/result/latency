@@ -1,0 +1,9 @@
+                                        Chainspace
+hw                                      0.16
+token_create                            1.04
+token_balance                           0.55
+token_transfer                          1.35
+vote_add                                0.26
+vote_vote                               0.22
+auction_add                             0.086
+auction_bid                             0.41

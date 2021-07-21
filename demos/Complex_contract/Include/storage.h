@@ -5,7 +5,7 @@
 
 #include <string>
 #include <map>
-// 存储形式
+
 typedef std::map<std::string,std::string> KVStorage;
 
 #endif

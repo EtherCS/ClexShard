@@ -7,7 +7,7 @@ ClexShard has the following salient features:
 + **Complex contracts supporting.** ClexShard supports the complex cross-shard contract execution, which enhances application areas of sharding systems.
 + **Secure execution.** ClexShard can guarantee the secure execution for cross-shard contracts. Any misbehaviors performed by users or off-chain nodes can be detected. 
 
-# Six cross-shard smart contracts used for test
+# Demos
 1. Hello World Contract:
 + Print: return a "Hello World!" message to the user
 2. Token Contract:

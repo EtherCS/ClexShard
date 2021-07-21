@@ -26,7 +26,7 @@ $ bash run.sh x
 ## 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/multiple_TEEs_latency
+$ cd $(DEV_PATH)/ClexShard/Client/multiple_TEEs_latency
 $ g++ client_latency_xtee.cpp -o latencyx -lpthread
 // x is corresponding to the above x
 ```

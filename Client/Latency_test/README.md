@@ -28,7 +28,7 @@ $ occlum run /bin/$(contract name) $(parameter) // the parameter depends on diff
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/Latency_test
+$ cd $(DEV_PATH)/ClexShard/Client/Latency_test
 $ g++ client_latency.cpp -o latency -lpthread 
 ```
 step 2: run client
@@ -62,7 +62,7 @@ $ occlum run /bin/$(contract name) $(parameter) // the parameter depends on diff
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/Latency_test
+$ cd $(DEV_PATH)/ClexShard/Client/Latency_test
 $ g++ client_latency.cpp -o latency -lpthread 
 ```
 step 2: run client

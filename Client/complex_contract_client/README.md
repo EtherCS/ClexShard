@@ -16,7 +16,7 @@ $ ./appteeprovider2
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/complex_contract_client
+$ cd $(DEV_PATH)/ClexShard/Client/complex_contract_client
 $ g++ client_tps.cpp -o tps -lpthread  
 ```
 step 2: run client
@@ -41,7 +41,7 @@ $ ./appteeprovider2
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/complex_contract_client
+$ cd $(DEV_PATH)/ClexShard/Client/complex_contract_client
 $ g++ client_latency.cpp -o latency -lpthread
 ```
 step 2: run client

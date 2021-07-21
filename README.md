@@ -32,4 +32,4 @@ please see https://github.com/occlum/occlum
 ## step 2: Start Chainspace
 please see *./chainspace/for_testing/README.md*
 ## step 3: Start test the performance of our model
-Enter the demos/Client directory, and refer to related *README* for different tests.
+Enter the ./Client directory, and refer to related *README* for different tests.

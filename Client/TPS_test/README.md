@@ -26,7 +26,7 @@ $ occlum run /bin/$(contract name) $(parameter) // the parameter depends on diff
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/TPS_test
+$ cd $(DEV_PATH)/ClexShard/Client/TPS_test
 $ g++ client_tps.cpp -o tps -lpthread
 ```
 step 2: run client
@@ -60,7 +60,7 @@ $ occlum run /bin/$(contract name) $(parameter) // the parameter depends on diff
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/TPS_test
+$ cd $(DEV_PATH)/ClexShard/Client/TPS_test
 $ g++ client_tps.cpp -o tps -lpthread
 ```
 step 2: run client

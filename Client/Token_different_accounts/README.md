@@ -24,7 +24,7 @@ $ occlum run /bin/Token ./$(account number)_state test
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/TPS_test
+$ cd $(DEV_PATH)/ClexShard/Client/TPS_test
 $ g++ client_tps.cpp -o tps -lpthread
 ```
 step 2: run client
@@ -59,7 +59,7 @@ $ occlum run /bin/Token ./$(account number)_state test
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/Latency_test
+$ cd $(DEV_PATH)/ClexShard/Client/Latency_test
 $ g++ client_latency.cpp -o latency -lpthread
 ```
 step 2: run client

@@ -10,7 +10,7 @@ $ bash run.sh x
 ## 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Client/deploy_test
+$ cd $(DEV_PATH)/ClexShard/Client/deploy_test
 change the variable x in client_latency_xtee.cpp as the number of TEE providers 
 $ g++ client_latency_xtee.cpp -o latency -lpthread  
 ```

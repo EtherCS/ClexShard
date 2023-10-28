@@ -3,7 +3,7 @@
 ### 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Complex_contract
+$ cd $(DEV_PATH)/ShardCon/demos/Complex_contract
 $ source /opt/intel/sgxsdk/environment  
 $ make
 ```
@@ -16,7 +16,7 @@ $ ./appteeprovider2
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/complex_contract_client
+$ cd $(DEV_PATH)/ShardCon/Client/complex_contract_client
 $ g++ client_tps.cpp -o tps -lpthread  
 ```
 step 2: run client
@@ -28,7 +28,7 @@ $ ./tps ./tps.csv 100000 "Call complex contract request for tps"
 ### 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Complex_contract
+$ cd $(DEV_PATH)/ShardCon/demos/Complex_contract
 $ source /opt/intel/sgxsdk/environment  
 $ make
 ```
@@ -41,7 +41,7 @@ $ ./appteeprovider2
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/complex_contract_client
+$ cd $(DEV_PATH)/ShardCon/Client/complex_contract_client
 $ g++ client_latency.cpp -o latency -lpthread
 ```
 step 2: run client

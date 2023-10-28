@@ -1,12 +1,12 @@
 # Throughput for different contract functions
 ## Chainspace
-please see *$(DEV_PATH)/ClexShard/chainspace/for_testing/README.md*
+please see *$(DEV_PATH)/ShardCon/chainspace/for_testing/README.md*
 
-## ClexShard-no-encrypt
+## ShardCon-no-encrypt
 ### 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/$(contract name)/no_encrypt
+$ cd $(DEV_PATH)/ShardCon/demos/$(contract name)/no_encrypt
 $ occlum-g++ $(contract name).cpp -o $(contract name)
 $ (optional)occlum-g++ create_account.cpp -o create // used in Token contract
 ```
@@ -26,7 +26,7 @@ $ occlum run /bin/$(contract name) $(parameter) // the parameter depends on diff
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/TPS_test
+$ cd $(DEV_PATH)/ShardCon/Client/TPS_test
 $ g++ client_tps.cpp -o tps -lpthread
 ```
 step 2: run client
@@ -34,11 +34,11 @@ step 2: run client
 $ ./tps ./tps.csv 100000 $(parameter)
 ```
 
-## ClexShard
+## ShardCon
 ### 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/$(contract name)/encrypt
+$ cd $(DEV_PATH)/ShardCon/demos/$(contract name)/encrypt
 $ occlum-g++ $(contract name).cpp -o $(contract name)
 $ (optional)occlum-g++ create_account.cpp -o create // used in Token contract
 ```
@@ -60,7 +60,7 @@ $ occlum run /bin/$(contract name) $(parameter) // the parameter depends on diff
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/TPS_test
+$ cd $(DEV_PATH)/ShardCon/Client/TPS_test
 $ g++ client_tps.cpp -o tps -lpthread
 ```
 step 2: run client

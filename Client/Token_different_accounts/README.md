@@ -3,7 +3,7 @@
 ### 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Token/multiple_accounts
+$ cd $(DEV_PATH)/ShardCon/demos/Token/multiple_accounts
 $ occlum-g++ Token.cpp -o Token -lcrypto
 $ occlum-g++ create_account.cpp -o create -lcrypto
 ```
@@ -24,7 +24,7 @@ $ occlum run /bin/Token ./$(account number)_state test
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/TPS_test
+$ cd $(DEV_PATH)/ShardCon/Client/TPS_test
 $ g++ client_tps.cpp -o tps -lpthread
 ```
 step 2: run client
@@ -38,7 +38,7 @@ $ /tps ./tps.csv 100000 "transfer 12345678901234567890 12345678901234567890 0"  
 ### 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/Token/multiple_accounts
+$ cd $(DEV_PATH)/ShardCon/demos/Token/multiple_accounts
 $ occlum-g++ Token.cpp -o Token -lcrypto
 $ occlum-g++ create_account.cpp -o create -lcrypto
 ```
@@ -59,7 +59,7 @@ $ occlum run /bin/Token ./$(account number)_state test
 ### 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/Latency_test
+$ cd $(DEV_PATH)/ShardCon/Client/Latency_test
 $ g++ client_latency.cpp -o latency -lpthread
 ```
 step 2: run client

@@ -1,5 +1,5 @@
 #!/bin/bash
-# ROOT_DIR=/home/gudale/gudale-dev/ClexShard/demos/hw_tps/multiple_TEE_Providers/
+# ROOT_DIR=/home/gudale/gudale-dev/ShardCon/demos/hw_tps/multiple_TEE_Providers/
 declare -i N=$1     #the number of TEE providers
 for ((i=1;i<=$N;i++))
 do

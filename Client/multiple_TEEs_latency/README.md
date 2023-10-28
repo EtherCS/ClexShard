@@ -2,7 +2,7 @@
 ## 1. Running TEE provider
 step 1: compile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/demos/$(contract name)/multiple_TEE_Providers
+$ cd $(DEV_PATH)/ShardCon/demos/$(contract name)/multiple_TEE_Providers
 // repeat: from x=1 to x=8
     $ occlum-g++ $x_(contract name).cpp -o x 
 $ (optional)occlum-g++ create_account.cpp -o create // used in Token contract
@@ -26,7 +26,7 @@ $ bash run.sh x
 ## 2. Running client
 step 1: comile the code
 ```
-$ cd $(DEV_PATH)/ClexShard/Client/multiple_TEEs_latency
+$ cd $(DEV_PATH)/ShardCon/Client/multiple_TEEs_latency
 $ g++ client_latency_xtee.cpp -o latencyx -lpthread
 // x is corresponding to the above x
 ```

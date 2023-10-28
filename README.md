@@ -1,11 +1,11 @@
 # Introduction
-ClexShard is a layer-two framework which aims to efficiently and securely support arbitrarily complex cross-shard contracts in blockchain sharding systems.
+ShardCon is a layer-two framework which aims to efficiently and securely support arbitrarily complex cross-shard contracts in blockchain sharding systems.
 
-ClexShard has the following salient features:
-+ **Compatible.** ClexShard can be easily integrated into existing blockchain sharding systems with minor modifications.
-+ **Low latency.** ClexShard can achieve low confirmation latency of millisecond level for cross-shard contracts, which is far lower than the current sharding systems.
-+ **Complex contracts supporting.** ClexShard supports the complex cross-shard contract execution, which enhances application areas of sharding systems.
-+ **Secure execution.** ClexShard can guarantee the secure execution for cross-shard contracts. Any misbehaviors performed by users or off-chain nodes can be detected. 
+ShardCon has the following salient features:
++ **Compatible.** ShardCon can be easily integrated into existing blockchain sharding systems with minor modifications.
++ **Low latency.** ShardCon can achieve low confirmation latency of millisecond level for cross-shard contracts, which is far lower than the current sharding systems.
++ **Complex contracts supporting.** ShardCon supports the complex cross-shard contract execution, which enhances application areas of sharding systems.
++ **Secure execution.** ShardCon can guarantee the secure execution for cross-shard contracts. Any misbehaviors performed by users or off-chain nodes can be detected. 
 
 # Demos
 1. Hello World Contract:
